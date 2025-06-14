@@ -66,13 +66,13 @@ This document outlines the complete vision for "The Replaced Man" as a game. It 
 ### Development Notes and TODOs:
 - The NoirScreen effect is gone again. and I loved it. Bring it back!
 - Think of information systems.
-    -- Game Title
-    -- Setting description
-    -- Node snippets
-    -- Game Hints
-    -- Interative information which is text that is generated as a result of taking an action for example... "plays a record: might result in a narrative response of text." is that narrative area content?
-    -- have a spot where people can download and read the script.
+-- Game Title
+-- Setting description
+-- Node snippets
+-- Game Hints
+-- Interative information which is text that is generated as a result of taking an action for example... "plays a record: might result in a narrative response of text." is that narrative area content?
+-- have a spot where people can download and read the script.
 - Outline room transitions
-    -- Crossfade, and push out the direction of door. When the crossfades in, character is int the middle.
+-- Crossfade, and push out the direction of door. When the crossfades in, character is int the middle.
 - Define a list of characters and objects.
 - Outline the narrative of the game. Needs a strong narrative which enhances the script.
