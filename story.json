@@ -1,0 +1,56 @@
+{
+    "living_room_start": {
+        "setting": "Living Room - An Unsettling Quiet",
+        "narrative": {
+            "chapter": { "number": 2, "title": "The Unraveling" },
+            "part": { "number": 1, "title": "Silence and a Song" },
+            "description": "The house is quiet except for the low hum of the botvac. Joi stands by the window, her posture stiff. The record player is silent."
+        },
+        "defaultEmoji": "😟",
+        "nodes": [
+            {
+                "id": "joi_npc_node",
+                "type": "npc",
+                "position": { "x": 600, "y": 250 },
+                "prompt": "Observe Joi",
+                "dialogue": "She hasn't looked away from that window in hours.",
+                "proximityEmoji": "🤔"
+            },
+            {
+                "id": "record_player_object_node",
+                "type": "object",
+                "position": { "x": 100, "y": 150 },
+                "prompt": "Inspect Player",
+                "echoText": "The sound of that song... from Hawaii. It feels like a lifetime ago.",
+                "proximityEmoji": "😔"
+            },
+            {
+                "id": "to_bedroom_exit_node",
+                "type": "exit",
+                "position": { "x": 360, "y": 480 },
+                "to": "bedroom",
+                "prompt": "Go to bedroom",
+                "proximityEmoji": "🚪"
+            }
+        ]
+    },
+    "bedroom": {
+        "setting": "Bedroom",
+        "narrative": {
+            "chapter": { "number": 2, "title": "The Unraveling" },
+            "part": { "number": 2, "title": "A Cold Space" },
+            "description": "The bedroom feels cold and empty, even with the moonlight filtering through the curtains. The bed is neatly made."
+        },
+        "defaultEmoji": "😔",
+        "nodes": [
+            {
+                "id": "to_living_room_exit_node",
+                "type": "exit",
+                "position": { "x": 360, "y": 40 },
+                "to": "living_room_start",
+                "prompt": "Return to living room",
+                "proximityEmoji": "🚪"
+            }
+        ]
+    }
+}

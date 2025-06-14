@@ -1,0 +1,122 @@
+/* --- CSS Variables --- */
+:root {
+    --main-text-color: #EAEAEA;
+    --secondary-text-color: #888;
+    --highlight-glow-color: #7DF9FF;
+    --background-color: #111;
+    --border-svg-color: '%23444'; /* URL-encoded color for the SVG border */
+}
+
+/* --- Basic Setup & UI --- */
+body, html { margin: 0; padding: 0; overflow: hidden; background-color: #000; font-family: 'SF Mono', 'Consolas', 'Menlo', monospace; color: var(--main-text-color); height: 100%; width: 100%; }
+#wrapper { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; }
+
+/* --- UPDATED: Typography Pass --- */
+#ui-header { 
+    text-align: center; 
+    width: 80vmin; 
+    margin-bottom: 15px; /* Tighter spacing */
+}
+#ui-footer { 
+    text-align: center; 
+    width: 80vmin; 
+    margin-top: 20px; /* Tighter spacing */
+    font-size: 1em; /* Reduced size */
+    color: var(--secondary-text-color); 
+}
+#ui-header h1 { /* Main game title */
+    margin: 0; 
+    font-size: 1.5em; /* Reduced size */
+    font-weight: 500; /* Reduced weight */
+    letter-spacing: 1px;
+}
+#room-title { /* Your new style */
+    margin: 10px 0 0 0;
+    font-size: 1em; /* Reduced size */
+    font-weight: 500; /* Reduced weight */
+    color: var(--secondary-text-color);
+}
+
+/* --- Game & Narrative Area --- */
+#game-area, #narrative-area {
+    position: relative;
+    width: 80vmin;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 18px;
+    border-image-source: url("data:image/svg+xml,<svg width='54' height='54' viewBox='0 0 54 54' xmlns='http://www.w3.org/2000/svg'><style>.s{stroke:var(--border-svg-color);stroke-width:2;fill:none;}</style><path class='s' d='M2,2 V18 M2,2 H18 M2,36 V52 M2,52 H18 M36,2 H52 M52,2 V18 M36,52 H52 M52,36 V52 M18,2 H36 M2,18 V36 M52,18 V36 M18,52 H36'/></svg>");
+    border-image-slice: 18;
+    border-image-repeat: round;
+}
+#game-area {
+    background-color: var(--background-color);
+    aspect-ratio: 4 / 3;
+    box-shadow: inset 0 0 80px 20px #000;
+}
+#narrative-area {
+    height: 180px;
+    margin-top: 15px; /* Tighter spacing */
+    padding: 20px;
+    font-size: 1.1em; /* Reduced size */
+    line-height: 1.5;
+}
+
+/* --- Game Objects & Player --- */
+#player { position: absolute; font-size: 40px; z-index: 10; }
+#game-objects-layer { position: absolute; width: 100%; height: 100%; z-index: 5; }
+
+/* --- UPDATED: Simplified Node Styling --- */
+.node {
+    position: absolute;
+    z-index: 15;
+    background-color: var(--secondary-text-color);
+    width: 8px; /* UPDATED: Smaller size */
+    height: 8px; /* UPDATED: Smaller size */
+    border-radius: 50%;
+    transform: translate(-4px, -4px); /* Centering for the new size */
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 8px var(--secondary-text-color);
+}
+
+.node.highlight {
+    /* UPDATED: No more scaling or changing shape */
+    background-color: var(--highlight-glow-color);
+    box-shadow: 0 0 15px var(--highlight-glow-color);
+    cursor: pointer;
+}
+
+/* We remove the ::after rule that created the 'E' */
+
+/* UPDATED: Repositioned the prompt for the smaller node */
+.node-prompt {
+    position: absolute;
+    top: 50%;
+    left: 15px; /* Position it just to the right of the node */
+    transform: translateY(-50%);
+    font-size: 14px;
+    background-color: var(--background-color);
+    padding: 2px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none; /* Make sure it doesn't block mouse events */
+}
+
+.node.highlight .node-prompt {
+    opacity: 1;
+}
+
+/* --- Echo Popup --- */
+#echo-container {
+    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.85); border: 1px solid #333;
+    padding: 8px 15px; /* Tighter padding */
+    border-radius: 5px; text-align: center;
+    opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s;
+    z-index: 40;
+}
+#echo-text {
+    margin: 0; font-style: italic;
+    font-size: 1.1em; /* Reduced size */
+}
