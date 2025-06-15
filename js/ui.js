@@ -1,8 +1,7 @@
 // js/ui.js
-
 let activeTypingInterval = null;
 
-export function typeWriter(element, text, speed = 30) {
+export function typeWriter(element, text, speed = 25) {
     if (activeTypingInterval) {
         clearInterval(activeTypingInterval);
     }
