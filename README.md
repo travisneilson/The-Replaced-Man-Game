@@ -1,66 +1,60 @@
-# The-Replaced-Man-Game
+# Product Requirements Document: The Replaced Man; The Game
 
-## Product Requirements Document: The Replaced Man
-1. Overview & Vision
+## 1. Overview & Vision
 
-Product Name: The Replaced Man
-Logline: A man searching for connection begins to uncover the truth about himself. 
-Vision: To create a top-down, narrative exploration game based on the provided movie script. The game will blend the exploratory feel of a classic adventure game with the emotional depth of a branching narrative. The primary gameplay loop will involve walking the character, Thomas, through different scenes to uncover the story, make choices, and experience his internal conflict.
+* **Product Name:** The Replaced Man; The Game
+* **Logline:** A man searching for connection begins to uncover the truth about himself.
+* **Vision Statement:** To create a top-down, narrative exploration game that translates the themes of the screenplay "The Replaced Man" into an interactive experience. The game will focus on player choice and environmental storytelling, driven by a minimalist "tech-noir" aesthetic and a unified, context-sensitive interaction system.
+* **Narrative Focus:** The game will focus primarily on **Character** and **Lore**. The Golden Rule of our narrative design is: 
+    > "Always be presenting lore, AND MAKE IT SERVE the character." 
+    Every piece of world-building will be filtered through Thomas's personal journey.
+* **Structural Theme:** The entire game is a **never-ending loop**. Upon reaching the story's conclusion, the game will seamlessly restart, reinforcing the screenplay's tragic, cyclical themes of identity.
 
-2. Target Audience
+## 2. Style, Tone, & Inspirations
 
-Players who enjoy story-rich, atmospheric indie games, narrative-driven experiences, and choose-your-own-adventure style gameplay.
+* **Aesthetic:** Tech-Noir Tragedy. The visual style is minimalist and monochrome, evocative of retro computer terminals and classic noir cinema. It will be framed with stylized ASCII borders.
+* **Emotional Tone:** The primary feelings are sadness, paranoia, mystery, and the quiet tragedy of a repeating cycle.
+* **Reference Media:** *Blade Runner*, *Ex Machina* (2014), *Westworld*, and the general mood of the Detective Noir genre.
+* **Surreal Environments:** Certain scenes, such as flashbacks or psychological breaks, will be defined as "surreal." These scenes will use unique visual effects (e.g., glitchy ASCII borders, color-shifting filters, distorted overlays) to represent Thomas's disorientation.
 
-3. Core Features & Gameplay Mechanics
+## 3. Core UI & Layout
 
-Top-Down Exploration:
-The player will control the main character, Thomas, from a top-down perspective.
-Movement will be controlled via the four arrow keys on the keyboard.
-Narrative Choice via Movement:
-The primary method for making choices and advancing the story is by walking the player character off the edge of the screen (North, South, East, or West).
-Each exit will lead to a new "room" or scene, revealing the next part of the story.
-Not all rooms will have exits in all four directions, creating structured paths, hallways, and dead ends.
-Modular, Procedural Environments:
-Each room will be visually distinct, constructed from a set of reusable and combinable SVG assets (e.g., walls, furniture, environmental objects).
-The placement and combination of these assets can be randomized to create a fresh feel for each scene.
-Story & UI Display:
-Upon entering a new room, a block of expository text will appear on screen, taken directly from the script's descriptions and dialogue.
-A persistent UI will display the High Score and game title in the header.
-4. Creative & Emotional Mechanics
+The game is presented as a single, cohesive "console" view based on the provided wireframes.
 
-Dynamic Emoji States:
-The player character will be represented by an emoji.
-The emoji's expression will change based on the mood of the current room (e.g., 😊 for happy, 😔 for pensive) to visually communicate Thomas's internal state.
-Interactive "Echoes":
-Certain significant items from the script (e.g., a family photo , a record player ) will be interactive objects within a room.
+* **Game Area:** The primary space for gameplay, where the player controls Thomas. It will feature a subtle atmospheric overlay (vignette, scanlines).
+* **Narrative Area:** A separate, bordered area below the Game Area where all narrative text and dialogue is displayed via a typewriter effect.
+* **Narrative Header:** The top section of the Narrative Area, displaying:
+    * **Act:** e.g., `Act 1 - An Unsettling Quiet`
+    * **Weekday:** e.g., `Monday`
+    * **Objective:** A clear, high-level goal for the current scene.
+* **Footer / Hint Bar:** A dedicated area at the bottom for persistent hints, activated by the `[H]` key.
 
-When the player is near an object, a visual cue will appear.
-Pressing an action key will display a fragment of Thomas's inner monologue or a key line from the script related to that object.
-The "Mantra" Mechanic:
-The player will be able to press a dedicated key (e.g., "M") at any time.
-This will trigger a visual display of Thomas's mantra, "I am worthy of love", accompanied by a subtle sound effect, to connect the player with his internal struggle.
+## 4. Core Player Mechanics
 
-The "Memory Glitch" Effect:
-During transitions between key narrative scenes (especially flashbacks), a brief visual glitch effect (e.g., pixelation, scanlines) will occur.
-This may cause previously visited rooms to appear subtly altered upon the player's return, enhancing the theme of unreliable memory.
-5. Start-up & Initial Experience
+* **The Mantra Mechanic:**
+    * **Acquisition:** Thomas starts with zero Mantras. He "collects" Mantra charges (`[+1 Mantra]`) by interacting with specific nodes in the world (e.g., a sticky note on a mirror). A UI element will track the current count.
+    * **Activation:** The player can press a dedicated key (`[M]`) at any time to "spend" a Mantra charge.
+    * **Effect:** Using a Mantra triggers a unique, context-sensitive line of narrative in the Narrative Area. Each room will have a list of possible Mantra narratives, and the game will select and display one **at random**.
 
-The game will begin on a "Click to Begin" screen featuring a single, bouncing emoji.
-After the player clicks, a main Title Screen will appear, featuring an animated title ("BRICK RUNNER")  and a "Press SPACE to Begin" prompt.
-An intro song will play once on the Title Screen.
-Pressing SPACE will start the game, with the character on an initial dark screen, from which the player makes their first choice by walking in a direction.
-6. Technical Stack
+* **The Unified Node Interaction System:**
+    * **Concept:** All interactions (for doors, objects, and people) are standardized into a single "Node" system.
+    * **Node Visuals:** Each interactive point is a "node," represented by its own unique `iconEmoji` (e.g., `👩🏻` for Joi, `🖼️` for a picture frame).
+    * **Interaction Prompt:** When near a node, it will highlight, and a multi-option prompt will appear, listing available actions with their corresponding keys (e.g., `[E] Talk to Joi`, `[F] Reach out`).
+    * **Node Types:** `object`, `npc`, `exit`, and `mainQuest` (which are visually distinct).
+* **Dynamic Player Emoji:** The player's emoji has a `defaultEmoji` for the room and changes to a `proximityEmoji` when near a node to foreshadow the interaction's tone.
 
-Language: Vanilla JavaScript (ES6+), HTML5, CSS3
-Graphics: Player character and all environmental assets will be rendered as SVG elements for style flexibility and scalability.
-Audio: The Web Audio API will be used to manage and play all sound effects and music.
-7. Out of Scope (for Version 1.0)
+## 5. The Dynamic Narrative System
 
-Real-time combat or action sequences.
-Complex inventory management systems (beyond simple flags for key items).
-A saved game/progress system.
-The "1-UP" and "Multi-ball" power-ups from our previous game project.
-This document outlines the complete vision for "The Replaced Man" as a game. It provides a clear roadmap for what we need to build, focusing on a stable, modular architecture.
+* **Conversation Flow:** Multi-stage conversations are turn-based. When initiated, player movement is locked, and the `game-area` is visually altered to show a "locked" state. The UI presents choices, and the player must select an option to resolve the interaction and regain movement control.
+* **Stateful Narrative:** The text in the Narrative Area is dynamic and will change to reflect the consequences of player actions, creating a new, persistent room state.
+* **Act-Based State Changes:** The core state of rooms (node placement, available interactions) remains consistent throughout an entire Act. Major changes to the world will occur between Acts, allowing for locations to be revisited in a different state.
+
+## 6. Controls
+
+* **Movement:** `Arrow Keys`.
+* **Interaction:** Contextual keys displayed by the node prompts (e.g., `E`, `F`, `T`, `J`).
+* **Hint:** `[H]` key.
+* **Mantra:** `[M]` key.
 
 
 ### Development Notes and TODOs:
