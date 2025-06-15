@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>The Replaced Man</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div id="game-wrapper">
+    <!-- Title & subtitle -->
+    <h1 id="game-title">The Replaced Man; The Game.</h1>
+    <h2 id="act-subtitle"></h2>
+
+    <!-- 1024×768 game screen -->
+    <div id="game-container">
+      <!-- Narrative area -->
+      <div id="narrative-area">
+        <p id="weekday"></p>
+        <p id="objective"></p>
+        <div id="narrative-text"></div>
+        <hr/>
+        <p id="location-snippet" class="subtle"></p>
+      </div>
+
+      <!-- Playfield with loading overlay -->
+      <div id="map-container">
+        <div id="loading-overlay">Loading…</div>
+        <p class="placeholder">Loading map…</p>
+        <div id="player">😐</div>
+      </div>
+    </div>
+
+    <!-- Hint bar -->
+    <div id="hint-container"></div>
+
+    <!-- Interaction modal -->
+    <div id="interaction-modal" class="modal hidden">
+      <div class="modal-content">
+        <h3 id="modal-title"></h3>
+        <ul id="modal-options"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js" defer></script>
+</body>
+</html>

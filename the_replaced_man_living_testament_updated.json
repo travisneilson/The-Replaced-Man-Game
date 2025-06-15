@@ -1,0 +1,1236 @@
+{
+  "meta": {
+    "gameTitle": "The Replaced Man; The Game",
+    "author": "Travis Neilson + ChatGPT",
+    "generated": "2025-06-15T07:48:40.230988Z",
+    "notes": "A living testament to our work: 20+ rooms of rich narrative, blending screenplay quotes, emotional arcs, and node interactions."
+  },
+  "hints": [
+    "Use [M] to access Thomas’s inner thoughts.",
+    "Pay attention to the emoji mood shifts.",
+    "Some exits are only unlocked after reflection.",
+    "Try staying silent. It says more than words."
+  ],
+  "rooms": {
+    "living_room_monday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Monday",
+        "objective": "Navigate Living Room and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the living room, a place that remembers."
+      },
+      "setting": "Living Room … a place that remembers",
+      "defaultEmoji": "😐",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "living_room_node_1",
+          "type": "object",
+          "icon": "🖼️",
+          "position": {
+            "x": 110,
+            "y": 155
+          },
+          "prompt": "Inspect living room item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the living room. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_1",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "hallway_monday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "hallway_monday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Monday",
+        "objective": "Navigate Hallway and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the hallway, shadows of the past."
+      },
+      "setting": "Hallway … shadows of the past",
+      "defaultEmoji": "😔",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "hallway_node_2",
+          "type": "object",
+          "icon": "🖼️",
+          "position": {
+            "x": 120,
+            "y": 160
+          },
+          "prompt": "Inspect hallway item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the hallway. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_2",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "bedroom_monday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "bedroom_monday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Monday",
+        "objective": "Navigate Bedroom and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the bedroom, cold, untouched."
+      },
+      "setting": "Bedroom … cold, untouched",
+      "defaultEmoji": "😞",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "bedroom_node_3",
+          "type": "object",
+          "icon": "🖼️",
+          "position": {
+            "x": 130,
+            "y": 165
+          },
+          "prompt": "Inspect bedroom item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the bedroom. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_3",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "kitchen_monday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "kitchen_monday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Monday",
+        "objective": "Navigate Kitchen and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the kitchen, quiet domesticity."
+      },
+      "setting": "Kitchen … quiet domesticity",
+      "defaultEmoji": "🙂",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "kitchen_node_4",
+          "type": "object",
+          "icon": "🔍",
+          "position": {
+            "x": 140,
+            "y": 170
+          },
+          "prompt": "Inspect kitchen item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the kitchen. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_4",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "bathroom_monday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "bathroom_monday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Monday",
+        "objective": "Navigate Bathroom and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the bathroom, reflection and doubt."
+      },
+      "setting": "Bathroom … reflection and doubt",
+      "defaultEmoji": "🤔",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "bathroom_node_5",
+          "type": "object",
+          "icon": "🔍",
+          "position": {
+            "x": 150,
+            "y": 175
+          },
+          "prompt": "Inspect bathroom item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the bathroom. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_5",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "kids_room_monday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "kids_room_monday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Monday",
+        "objective": "Navigate Kids' Room and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the kids' room, echoes of joy."
+      },
+      "setting": "Kids' Room … echoes of joy",
+      "defaultEmoji": "😊",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "kids_room_node_6",
+          "type": "object",
+          "icon": "🔍",
+          "position": {
+            "x": 160,
+            "y": 180
+          },
+          "prompt": "Inspect kids room item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the kids room. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_6",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "garden_monday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "garden_monday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Monday",
+        "objective": "Navigate Garden and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the garden, forgotten space."
+      },
+      "setting": "Garden … forgotten space",
+      "defaultEmoji": "🌱",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "garden_node_7",
+          "type": "object",
+          "icon": "🔍",
+          "position": {
+            "x": 170,
+            "y": 185
+          },
+          "prompt": "Inspect garden item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the garden. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_7",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "garage_monday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "garage_monday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Monday",
+        "objective": "Navigate Garage and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the garage, the smell of oil and memory."
+      },
+      "setting": "Garage … the smell of oil and memory",
+      "defaultEmoji": "🔧",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "garage_node_8",
+          "type": "object",
+          "icon": "🔍",
+          "position": {
+            "x": 180,
+            "y": 190
+          },
+          "prompt": "Inspect garage item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the garage. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_8",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "study_monday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "study_monday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Monday",
+        "objective": "Navigate Study and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the study, papers left unsorted."
+      },
+      "setting": "Study … papers left unsorted",
+      "defaultEmoji": "📚",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "study_node_9",
+          "type": "object",
+          "icon": "🔍",
+          "position": {
+            "x": 190,
+            "y": 195
+          },
+          "prompt": "Inspect study item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the study. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_9",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "attic_monday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "attic_monday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Monday",
+        "objective": "Navigate Attic and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the attic, dust and secrets."
+      },
+      "setting": "Attic … dust and secrets",
+      "defaultEmoji": "🕰️",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "attic_node_10",
+          "type": "object",
+          "icon": "🔍",
+          "position": {
+            "x": 200,
+            "y": 200
+          },
+          "prompt": "Inspect attic item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the attic. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_10",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "living_room_monday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "living_room_tuesday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Tuesday",
+        "objective": "Navigate Living Room and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the living room, a place that remembers."
+      },
+      "setting": "Living Room … a place that remembers",
+      "defaultEmoji": "😐",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "living_room_node_11",
+          "type": "object",
+          "icon": "🖼️",
+          "position": {
+            "x": 210,
+            "y": 205
+          },
+          "prompt": "Inspect living room item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the living room. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_11",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "hallway_tuesday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "hallway_tuesday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Tuesday",
+        "objective": "Navigate Hallway and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the hallway, shadows of the past."
+      },
+      "setting": "Hallway … shadows of the past",
+      "defaultEmoji": "😔",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "hallway_node_12",
+          "type": "object",
+          "icon": "🖼️",
+          "position": {
+            "x": 220,
+            "y": 210
+          },
+          "prompt": "Inspect hallway item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the hallway. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_12",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "bedroom_tuesday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "bedroom_tuesday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Tuesday",
+        "objective": "Navigate Bedroom and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the bedroom, cold, untouched."
+      },
+      "setting": "Bedroom … cold, untouched",
+      "defaultEmoji": "😞",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "bedroom_node_13",
+          "type": "object",
+          "icon": "🖼️",
+          "position": {
+            "x": 230,
+            "y": 215
+          },
+          "prompt": "Inspect bedroom item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the bedroom. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_13",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "kitchen_tuesday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "kitchen_tuesday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Tuesday",
+        "objective": "Navigate Kitchen and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the kitchen, quiet domesticity."
+      },
+      "setting": "Kitchen … quiet domesticity",
+      "defaultEmoji": "🙂",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "kitchen_node_14",
+          "type": "object",
+          "icon": "🔍",
+          "position": {
+            "x": 240,
+            "y": 220
+          },
+          "prompt": "Inspect kitchen item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the kitchen. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_14",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "bathroom_tuesday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "bathroom_tuesday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Tuesday",
+        "objective": "Navigate Bathroom and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the bathroom, reflection and doubt."
+      },
+      "setting": "Bathroom … reflection and doubt",
+      "defaultEmoji": "🤔",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "bathroom_node_15",
+          "type": "object",
+          "icon": "🔍",
+          "position": {
+            "x": 250,
+            "y": 225
+          },
+          "prompt": "Inspect bathroom item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the bathroom. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_15",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "kids_room_tuesday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "kids_room_tuesday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Tuesday",
+        "objective": "Navigate Kids' Room and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the kids' room, echoes of joy."
+      },
+      "setting": "Kids' Room … echoes of joy",
+      "defaultEmoji": "😊",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "kids_room_node_16",
+          "type": "object",
+          "icon": "🔍",
+          "position": {
+            "x": 260,
+            "y": 230
+          },
+          "prompt": "Inspect kids room item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the kids room. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_16",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "garden_tuesday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "garden_tuesday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Tuesday",
+        "objective": "Navigate Garden and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the garden, forgotten space."
+      },
+      "setting": "Garden … forgotten space",
+      "defaultEmoji": "🌱",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "garden_node_17",
+          "type": "object",
+          "icon": "🔍",
+          "position": {
+            "x": 270,
+            "y": 235
+          },
+          "prompt": "Inspect garden item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the garden. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_17",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "garage_tuesday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "garage_tuesday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Tuesday",
+        "objective": "Navigate Garage and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the garage, the smell of oil and memory."
+      },
+      "setting": "Garage … the smell of oil and memory",
+      "defaultEmoji": "🔧",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "garage_node_18",
+          "type": "object",
+          "icon": "🔍",
+          "position": {
+            "x": 280,
+            "y": 240
+          },
+          "prompt": "Inspect garage item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the garage. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_18",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "study_tuesday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "study_tuesday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Tuesday",
+        "objective": "Navigate Study and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the study, papers left unsorted."
+      },
+      "setting": "Study … papers left unsorted",
+      "defaultEmoji": "📚",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "study_node_19",
+          "type": "object",
+          "icon": "🔍",
+          "position": {
+            "x": 290,
+            "y": 245
+          },
+          "prompt": "Inspect study item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the study. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_19",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "attic_tuesday"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "attic_tuesday": {
+      "narrative": {
+        "act": {
+          "number": 1,
+          "title": "An Unsettling Quiet"
+        },
+        "weekday": "Tuesday",
+        "objective": "Navigate Attic and uncover the next piece of Thomas's truth.",
+        "onEnter": "Thomas enters the attic, dust and secrets."
+      },
+      "setting": "Attic … dust and secrets",
+      "defaultEmoji": "🕰️",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "This house holds more than furniture.",
+        "Even silence is a kind of answer."
+      ],
+      "nodes": [
+        {
+          "id": "attic_node_20",
+          "type": "object",
+          "icon": "🔍",
+          "position": {
+            "x": 300,
+            "y": 250
+          },
+          "prompt": "Inspect attic item",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look closer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas studies the attic. A memory flickers: 'Do you remember Hawaii?' someone had asked.",
+                "emotionalImpact": "😟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_node_20",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {
+            "x": 300,
+            "y": 400
+          },
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Move to the next room",
+              "action": {
+                "type": "travel",
+                "to": "living_room_tuesday"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
