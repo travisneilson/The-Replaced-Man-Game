@@ -1,18 +1,20 @@
-/* Global & wrapper */
+/* Global & Vertical-Center Wrapper */
 html, body {
   margin: 0;
   padding: 0;
   background: #000;
   color: #eee;
   font-family: monospace;
-}
-#game-wrapper {
-  width: 1024px;
-  margin: 0 auto;
-  padding-top: 16px;
+  height: 100vh;               /* full viewport height */
+  display: flex;               /* center #game-wrapper vertically */
+  align-items: center;
+  justify-content: center;     /* already centering horizontally */
 }
 
-/* Title & subtitle */
+/* Wrapper & Title */
+#game-wrapper {
+  width: 1024px;
+}
 #game-title {
   font-size: 24px;
   font-weight: normal;
@@ -27,36 +29,45 @@ html, body {
   margin: 4px 0 16px;
 }
 
-/* Game screen container */
+/* Game Container */
 #game-container {
   width: 1024px;
   height: 768px;
   box-sizing: border-box;
-  border: 16px solid #444;
+  border: 16px solid #1B1B1B;  /* darker border */
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
+  background: none;            /* let body’s #000 show through */
 }
 
-/* Narrative area */
+/* Narrative Area */
 #narrative-area {
   flex: 0 0 234px;
   padding: 16px 24px;
   box-sizing: border-box;
   font-size: 20px;
   line-height: 1.6;
-  overflow-y: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  overflow: hidden;            /* fixed height, no scroll */
+  display: block;
 }
-#narrative-area p { margin: 4px 0; }
+#narrative-text {
+  display: block;
+  height: 64px;
+  margin: 0 0 20px;
+  color: #fff;
+}
+#location-snippet {
+  font-size: 16px;
+  color: hsl(0,0%,70%);
+  text-align: center;         /* center-align label */
+  margin: 0;
+}
 #weekday {
   font-size: 16px;
   font-weight: bold;
   margin: 0 0 12px;
-  line-height: 1.4;
 }
 #objective {
   font-size: 14px;
@@ -65,25 +76,16 @@ html, body {
   color: hsla(0,0%,50%,0.5);
   letter-spacing: 0.05em;
 }
-#narrative-text {
-  margin: 0 0 20px;
-  color: #fff;
-}
 #narrative-area hr {
   border: none;
   border-top: 1px solid hsl(0,0%,30%);
-  margin: 20px 0;
-}
-#location-snippet {
-  font-size: 16px;
-  color: hsl(0,0%,70%);
-  margin: 0;
+  margin: 0 0 20px;
 }
 
-/* Playfield & overlay */
+/* Playfield */
 #map-container {
   flex: 0 0 502px;
-  background: #111;
+  background: none;           /* remove lighter fill */
   position: relative;
   cursor: none;
   overflow: hidden;
@@ -94,38 +96,46 @@ html, body {
   opacity: 1;
 }
 #loading-overlay {
-  position: absolute; top: 0; left: 0;
+  position: absolute;
+  top: 0; left: 0;
   width: 100%; height: 100%;
-  background: #000; color: #eee;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 24px; z-index: 10;
-  opacity: 1; transition: opacity 0.5s ease;
+  background: #000;
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
 #loading-overlay.hidden {
-  opacity: 0; pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 .placeholder {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  color: #666; font-size: 18px;
+  color: #666;
+  font-size: 18px;
 }
 
-/* Player avatar */
+/* Player Avatar */
 #player {
   position: absolute;
   left: 0; top: 0;
   transform: translate(-50%, -50%);
   font-size: 48px;
   pointer-events: none;
-  z-index: 2;
+  z-index: 10;
 }
 
-/* Node hotspot dot */
+/* Node Dot */
 .dot {
   position: absolute;
   width: 8px; height: 8px;
-  background-color: #ccc;
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -135,91 +145,135 @@ html, body {
   background-color: #0ff;
 }
 
-/* Node icon */
-.node-icon {
+/* Node Icons */
+.node-icon.object {
   position: absolute;
-  transform-origin: center center;
+  font-size: 48px;
+  transform: translate(-50%, -120%);
   z-index: 2;
   pointer-events: all;
 }
-.node-icon.object {
-  font-size: 48px;
-  transform: translate(-50%, -120%);
-}
 .node-icon.exit {
-  /* new size */
+  position: absolute;
   width: 120px;
   height: 48px;
-  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  z-index: 2;
+  pointer-events: all;
 }
 .node-icon.exit svg {
   width: 100%;
   height: 100%;
 }
 
-/* Interaction prompt */
+/* Keycap Graphic */
+.keycap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  font-weight: normal;
+  line-height: 1;
+  font-size: 18px;
+  margin-right: 16px;
+}
+
+/* Interaction Prompt */
 .prompt {
   position: absolute;
-  font-size: 12px;
-  background: rgba(0,0,0,0.7);
-  padding: 2px 6px;
-  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+  background: none;
+  padding: 0;
   color: #fff;
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
-  transform: translate(-50%, -150%) scale(0.6);
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  /* center of prompt (key + text) is shifted left by half the key’s width (12px) 
+     and vertically centered on the dot: */
+  transform: translate(-12px, -50%);
+  transition: opacity 0.2s ease-out;
   z-index: 3;
 }
 .prompt.visible {
   opacity: 1;
-  transform: translate(-50%, -160%) scale(1);
 }
-.prompt .key {
-  display: inline-block;
-  border: 1px solid #fff;
-  padding: 2px 4px;
-  margin-right: 4px;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 2px;
+/* Flip for right-edge */
+.prompt.right-align {
+  flex-direction: row-reverse;
+}
+.prompt.right-align .keycap {
+  margin-right: 0;
+  margin-left: 16px;
 }
 
-/* Hint bar */
+/* Hint Bar */
 #hint-container {
   margin: 16px auto;
   width: 1024px;
-  text-align: center;
-  font-size: 14px;
+  text-align: left;
+  font-size: 16px;
   color: #ccc;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+}
+.hint-text {
+  transition: opacity 0.4s ease;
+  opacity: 1;
+}
+.hint-text.hide {
+  opacity: 0;
 }
 
-/* Interaction modal */
+/* Modal */
 .modal {
-  position: fixed; top: 0; left: 0;
+  position: fixed;
+  top: 0; left: 0;
   width: 100%; height: 100%;
   background: rgba(0,0,0,0.8);
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 100;
 }
 .modal.hidden {
   display: none;
 }
 .modal-content {
-  background: #222; padding: 24px;
-  border-radius: 8px; width: 400px; max-width: 90%;
-  color: #eee; font-family: monospace;
+  background: #222;
+  padding: 24px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  color: #eee;
+  font-family: monospace;
 }
 .modal-content h3 {
-  margin-top: 0; font-size: 18px;
+  margin-top: 0;
+  font-size: 18px;
 }
 #modal-options {
-  list-style: none; padding: 0; margin: 16px 0 0;
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
 }
 #modal-options li {
   margin: 8px 0;
 }
-#modal-options .key {
-  font-weight: bold; margin-right: 8px;
+
+/* node icons sit bottom-center on the dot */
+.node-icon.object,
+.node-icon.npc,
+.node-icon.mainQuest {
+  position: absolute;
+  font-size: 48px;               /* keep the same size as Thomas */
+  transform: translate(-50%, -100%); /* bottom aligned */
+  transform-origin: center bottom;   /* anchor at bottom center */
+  z-index: 2;
+  pointer-events: all;
 }

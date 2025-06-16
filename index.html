@@ -30,8 +30,11 @@
       </div>
     </div>
 
-    <!-- Hint bar -->
-    <div id="hint-container"></div>
+  <div id="hint-container">
+    <!-- the H key graphic, then whatever hint text follows -->
+    <span class="keycap">H</span>
+    <span class="hint-text">Hint: Use the arrow keys to move. Press E to interact.</span>
+  </div>
 
     <!-- Interaction modal -->
     <div id="interaction-modal" class="modal hidden">
@@ -42,6 +45,8 @@
     </div>
   </div>
 
+  <script src="engine.js" defer></script>
+  <script src="presentation.js" defer></script>
   <script src="game.js" defer></script>
 </body>
 </html>
