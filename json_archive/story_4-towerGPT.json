@@ -1,0 +1,249 @@
+{
+  "hints": [
+    "Use arrow keys to navigate Thomas around each room.",
+    "Press [E] to interact with objects, people, and doors.",
+    "Collect the hidden Mantra fragment somewhere to gain a charge.",
+    "Spend a Mantra charge with [M] to reveal an inner thought."
+  ],
+  "rooms": {
+    "entrance": {
+      "narrative": {
+        "act": { "number": 1, "title": "Gateway" },
+        "weekday": "Wednesday",
+        "objective": "Examine the hall’s curiosities.",
+        "onEnter": "You step into a grand entrance hall, the air tinged with dust and memory.",
+        "mantraNarratives": [
+          "Echoes of footsteps long past linger here.",
+          "The threshold feels both welcoming and forbidding."
+        ]
+      },
+      "setting": "A vaulted hall with marble floors and tall pillars.",
+      "defaultEmoji": "😐",
+      "nodes": [
+        {
+          "id": "marble_statue",
+          "type": "object",
+          "icon": "🗿",
+          "position": { "x": 300, "y": 300 },
+          "prompt": "Inspect Statue",
+          "proximityEmoji": "🔍",
+          "proximityNarrative": "A statue of a forgotten hero stands vigil.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Examine",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Chisel marks and cracks trace a story lost to time.",
+                "emotionalImpact": "🤔"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ancient_vase",
+          "type": "object",
+          "icon": "🏺",
+          "position": { "x": 700, "y": 500 },
+          "prompt": "Look at Vase",
+          "proximityEmoji": "🔎",
+          "proximityNarrative": "An ornate vase, its patterns faded but intricate.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Inspect",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "You trace the frieze of dancing figures around its neck.",
+                "emotionalImpact": "😯"
+              }
+            }
+          ]
+        },
+        {
+          "id": "entrance_to_gallery",
+          "type": "exit",
+          "orientation": "east",
+          "offset": 0.5,
+          "prompt": "Go to Gallery",
+          "proximityEmoji": "🚪",
+          "proximityNarrative": "A heavy door leads into a long gallery.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Open Door",
+              "action": { "type": "travel", "to": "gallery" }
+            }
+          ]
+        }
+      ]
+    },
+
+    "gallery": {
+      "narrative": {
+        "act": { "number": 1, "title": "Exhibition" },
+        "weekday": "Wednesday",
+        "objective": "Find the hidden fragment.",
+        "onEnter": "Paintings line the walls of this narrow gallery, shadows shifting between them.",
+        "mantraNarratives": [
+          "Colors bleed into corners where no light reaches.",
+          "Each frame holds a fragment of an untold story."
+        ]
+      },
+      "setting": "A narrow gallery with paintings and display cases.",
+      "defaultEmoji": "😐",
+      "nodes": [
+        {
+          "id": "grand_painting",
+          "type": "object",
+          "icon": "🖼️",
+          "position": { "x": 400, "y": 300 },
+          "prompt": "Study Painting",
+          "proximityEmoji": "👁️",
+          "proximityNarrative": "A grand painting depicts a fading sunrise.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Examine",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "The brushstrokes suggest a hand trembling with emotion.",
+                "emotionalImpact": "😯"
+              }
+            }
+          ]
+        },
+        {
+          "id": "mantra_fragment",
+          "type": "object",
+          "icon": "💎",
+          "position": { "x": 600, "y": 550 },
+          "prompt": "Pick up Fragment",
+          "proximityEmoji": "🔎",
+          "proximityNarrative": "A small shard glints in the corner of a display case.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Collect",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "You pocket the fragment—a pulse of memory surges through you.",
+                "emotionalImpact": "✨",
+                "event": { "action": "collect_mantra" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "gallery_to_rooftop",
+          "type": "exit",
+          "orientation": "south",
+          "offset": 0.3,
+          "prompt": "Climb to Rooftop",
+          "proximityEmoji": "🚪",
+          "proximityNarrative": "A narrow staircase spirals upward.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Ascend",
+              "action": { "type": "travel", "to": "rooftop" }
+            }
+          ]
+        },
+        {
+          "id": "gallery_to_entrance",
+          "type": "exit",
+          "orientation": "west",
+          "offset": 0.5,
+          "prompt": "Return to Entrance",
+          "proximityEmoji": "🚪",
+          "proximityNarrative": "The door back to the entrance hall stands open.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Go Back",
+              "action": { "type": "travel", "to": "entrance" }
+            }
+          ]
+        }
+      ]
+    },
+
+    "rooftop": {
+      "narrative": {
+        "act": { "number": 1, "title": "Revelation" },
+        "weekday": "Wednesday",
+        "objective": "Return to the entrance.",
+        "onEnter": "Beneath a domed sky, instruments point to distant stars.",
+        "mantraNarratives": [
+          "The heavens hold answers you fear to find.",
+          "Every lens frames both wonder and loss."
+        ]
+      },
+      "setting": "A rooftop observatory with telescopes and domes.",
+      "defaultEmoji": "😐",
+      "nodes": [
+        {
+          "id": "telescope",
+          "type": "object",
+          "icon": "🔭",
+          "position": { "x": 500, "y": 350 },
+          "prompt": "Look Through Telescope",
+          "proximityEmoji": "👀",
+          "proximityNarrative": "Stars burn bright through the lens.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Peer",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "You glimpse constellations shaped like distant memories.",
+                "emotionalImpact": "🌟"
+              }
+            }
+          ]
+        },
+        {
+          "id": "satellite_dish",
+          "type": "object",
+          "icon": "📡",
+          "position": { "x": 300, "y": 600 },
+          "prompt": "Inspect Dish",
+          "proximityEmoji": "🔍",
+          "proximityNarrative": "A dish points skyward, cables snaking across the floor.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Examine",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Faint static hums through the feed—signals from beyond.",
+                "emotionalImpact": "😯"
+              }
+            }
+          ]
+        },
+        {
+          "id": "rooftop_to_entrance",
+          "type": "exit",
+          "orientation": "north",
+          "offset": 0.5,
+          "prompt": "Descend to Entrance",
+          "proximityEmoji": "🚪",
+          "proximityNarrative": "A ladder leads back down to the entrance hall.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Descend",
+              "action": {
+                "type": "travel",
+                "to": "entrance",
+                "loop": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

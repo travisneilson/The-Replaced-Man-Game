@@ -1,0 +1,211 @@
+{
+  "hints": [
+    "Press [E] to interact when you see a dot blink.",
+    "Hold [R] to sprint for a burst of speed.",
+    "Use [M] to sift through your inner voice when you have Mantra charges."
+  ],
+  "rooms": {
+    "living_room": {
+      "narrative": {
+        "act": { "number": 1, "title": "An Unsettling Quiet" },
+        "weekday": "Monday",
+        "objective": "Find a clue in your apartment.",
+        "onEnter": "You awaken to the hum of neon outside. Everything feels both familiar—and wrong.",
+        "mantraNarratives": [
+          "Why does that painting stare at me every time I turn my head?",
+          "I can’t remember when I last slept.",
+          "A chill runs up my spine despite the warmth in the room."
+        ]
+      },
+      "setting": "A small living room bathed in cold blue light.",
+      "defaultEmoji": "😐",
+      "nodes": [
+        {
+          "id": "photo_frame",
+          "type": "object",
+          "icon": "🖼️",
+          "position": { "x": 300, "y": 200 },
+          "proximity": 96,
+          "prompt": "Inspect",
+          "proximityEmoji": "🤔",
+          "proximityNarrative": "The glossy surface reflects your face… and something behind you.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Inspect",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "You lift the frame, revealing a torn photograph beneath.",
+                "emotionalImpact": "😟",
+                "event": { "action": "add_state", "state": "photo_inspected" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "joi_npc",
+          "type": "npc",
+          "icon": "🤖",
+          "position": { "x": 700, "y": 250 },
+          "proximity": 96,
+          "prompt": "Talk",
+          "proximityEmoji": "💬",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Greet Joi",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Joi's voice echoes in your mind: “Thomas, are you awake?”",
+                "emotionalImpact": "🙂"
+              }
+            }
+          ]
+        },
+        {
+          "id": "living_exit_kitchen",
+          "type": "exit",
+          "icon": "",
+          "orientation": "east",
+          "offset": 0.5,
+          "prompt": "Go to Kitchen",
+          "proximityEmoji": "🚪",
+          "proximityNarrative": "A heavy door stands ajar, its metal cold to the touch.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Enter",
+              "action": { "type": "travel", "to": "kitchen" }
+            }
+          ]
+        }
+      ]
+    },
+
+    "kitchen": {
+      "narrative": {
+        "act": { "number": 1, "title": "Fragments of Memory" },
+        "weekday": "Monday",
+        "objective": "Discover what’s missing.",
+        "onEnter": "The kitchen is silent except for the drip… drip… drip of the faucet.",
+        "mantraNarratives": [
+          "That faucet rhythm matches my heartbeat.",
+          "Who turned on the light?",
+          "I can taste metal—like old blood."
+        ]
+      },
+      "setting": "A stark kitchen with stainless steel surfaces.",
+      "defaultEmoji": "😐",
+      "nodes": [
+        {
+          "id": "faucet",
+          "type": "object",
+          "icon": "🚰",
+          "position": { "x": 500, "y": 150 },
+          "prompt": "Inspect",
+          "proximityEmoji": "💧",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Inspect",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "You twist the handle: cold water and a single red droplet swirl.",
+                "emotionalImpact": "😧",
+                "event": { "action": "add_state", "state": "saw_blood" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "fridge_npc",
+          "type": "npc",
+          "icon": "🧊",
+          "position": { "x": 250, "y": 400 },
+          "requiresState": "photo_inspected",
+          "prompt": "Open Fridge",
+          "proximityEmoji": "🧐",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Open",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Inside: nothing but a single egg and a torn note reading “Remember.”",
+                "emotionalImpact": "😶"
+              }
+            }
+          ]
+        },
+        {
+          "id": "kitchen_exit_office",
+          "type": "exit",
+          "orientation": "south",
+          "offset": 0.3,
+          "prompt": "Go to Office",
+          "proximityEmoji": "🚪",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Enter",
+              "action": { "type": "travel", "to": "office" }
+            }
+          ]
+        }
+      ]
+    },
+
+    "office": {
+      "narrative": {
+        "act": { "number": 1, "title": "The Endless Loop" },
+        "weekday": "Monday",
+        "objective": "Confront the truth.",
+        "onEnter": "The desk lamp flickers. A single terminal blinks: LOADING…",
+        "mantraNarratives": [
+          "This screen… it knows me.",
+          "Every loop brings me back here.",
+          "I am both the question and the answer."
+        ]
+      },
+      "setting": "A sterile office, dominated by a lone computer terminal.",
+      "defaultEmoji": "😐",
+      "nodes": [
+        {
+          "id": "terminal",
+          "type": "mainQuest",
+          "icon": "💻",
+          "position": { "x": 512, "y": 384 },
+          "prompt": "Access",
+          "proximityEmoji": "🔌",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Access",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "You punch in the code. The screen glitches… and resets.",
+                "emotionalImpact": "😵",
+                "event": { "action": "add_state", "state": "loop_complete" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "office_exit_living",
+          "type": "exit",
+          "orientation": "west",
+          "offset": 0.5,
+          "prompt": "Return to Living Room",
+          "proximityEmoji": "🚪",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Go back",
+              "action": { "type": "travel", "to": "living_room" }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,298 @@
+{
+  "hints": [
+    "Use the arrow keys to move Thomas around the room.",
+    "Press E to interact whenever you see a keycap appear.",
+    "Hold Shift to sprint (developer mode!).",
+    "Press H to cycle through context-sensitive hints."
+  ],
+  "rooms": {
+    "living_room": {
+      "narrative": {
+        "act": { "number": 1, "title": "An Unsettling Quiet" },
+        "weekday": "Monday",
+        "objective": "Find the photograph that haunts your past.",
+        "onEnter": "Thomas stands in the dimly lit living room, the hum of broken neon leaking through the blinds.",
+        "mantraNarratives": [
+          "Why does every memory feel like someone else’s dream?",
+          "Even the silence seems to be watching me.",
+          "I can’t remember why this photo matters—only that it does."
+        ]
+      },
+      "setting": "Living Room: dusty, retro-tech décor, a single flickering lamp.",
+      "defaultEmoji": "😐",
+      "nodes": [
+        {
+          "id": "photo_frame",
+          "type": "object",
+          "icon": "🖼️",
+          "position": { "x": 300, "y": 200 },
+          "proximity": 64,
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Inspect Photo",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas picks up the faded photograph. He doesn’t recognize the face staring back.",
+                "emotionalImpact": "😟",
+                "event": { "action": "add_state", "state": "photo_inspected" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "joi_npc",
+          "type": "npc",
+          "icon": "👩🏻",
+          "position": { "x": 600, "y": 300 },
+          "proximity": 64,
+          "proximityEmoji": "😊",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Talk to Joi",
+              "action": {
+                "type": "dialogue_choice",
+                "narrative": "Joi’s voice is soft, almost mechanical: “Thomas, you always ask the hardest questions.”",
+                "emotionalImpact": "🙂"
+              }
+            }
+          ]
+        },
+        {
+          "id": "main_console",
+          "type": "mainQuest",
+          "icon": "💻",
+          "position": { "x": 512, "y": 100 },
+          "proximity": 64,
+          "proximityEmoji": "💡",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Activate Console",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "The console flickers to life, lines of green code whispering secrets of your identity.",
+                "emotionalImpact": "🤖",
+                "event": { "action": "add_state", "state": "console_activated" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "door_hallway",
+          "type": "exit",
+          "icon": null,
+          "orientation": "north",
+          "offset": 0.5,
+          "proximity": 48,
+          "proximityNarrative": "The hallway beyond is bathed in cold fluorescent light.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Go to Hallway",
+              "action": {
+                "type": "travel",
+                "to": "hallway"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    "hallway": {
+      "narrative": {
+        "act": { "number": 1, "title": "Echoes Down the Corridor" },
+        "weekday": "Monday",
+        "objective": "Follow the trail of flickering lights.",
+        "onEnter": "A long, narrow hallway stretches out—each door a promise of revelation or regret.",
+        "mantraNarratives": [
+          "Footsteps echo like distant warnings.",
+          "What waits behind each door? Salvation or oblivion?",
+          "These walls hold more secrets than my own mind."
+        ]
+      },
+      "setting": "Hallway: peeling paint, broken security cameras.",
+      "defaultEmoji": "😐",
+      "nodes": [
+        {
+          "id": "broken_camera",
+          "type": "object",
+          "icon": "📷",
+          "position": { "x": 200, "y": 250 },
+          "proximity": 64,
+          "proximityEmoji": "🔍",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Inspect Camera",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "The lens is cracked. Through it, Thomas glimpses a memory that isn’t his own.",
+                "emotionalImpact": "😧",
+                "event": { "action": "add_state", "state": "camera_inspected" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "mysterious_stranger",
+          "type": "npc",
+          "icon": "🕵️",
+          "position": { "x": 800, "y": 300 },
+          "proximity": 64,
+          "proximityEmoji": "👀",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Greet Stranger",
+              "action": {
+                "type": "dialogue_choice",
+                "narrative": "The stranger’s eyes glaze over: “You shouldn’t be here... it isn’t safe.”",
+                "emotionalImpact": "😶"
+              }
+            }
+          ]
+        },
+        {
+          "id": "core_panel",
+          "type": "mainQuest",
+          "icon": "⚙️",
+          "position": { "x": 512, "y": 100 },
+          "proximity": 64,
+          "proximityEmoji": "🔧",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Inspect Panel",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Wiring pulses beneath the metal—like a heartbeat betraying a machine’s soul.",
+                "emotionalImpact": "🤯",
+                "event": { "action": "add_state", "state": "panel_activated" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "door_study",
+          "type": "exit",
+          "icon": null,
+          "orientation": "south",
+          "offset": 0.5,
+          "proximity": 48,
+          "proximityNarrative": "The study awaits, its door cracked open like a wound.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Enter Study",
+              "action": {
+                "type": "travel",
+                "to": "study"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    "study": {
+      "narrative": {
+        "act": { "number": 1, "title": "Fragments of Truth" },
+        "weekday": "Monday",
+        "objective": "Unlock the final fragment of your memory.",
+        "onEnter": "In the study, rain patters on the windows as a single book lies open on the desk.",
+        "mantraNarratives": [
+          "Every word on the page tastes like betrayal.",
+          "I’m searching for answers in someone else’s handwriting.",
+          "This silence is heavier than steel bars."
+        ]
+      },
+      "setting": "Study: blood-soaked pages, half-empty whisky glass.",
+      "defaultEmoji": "😐",
+      "nodes": [
+        {
+          "id": "open_book",
+          "type": "object",
+          "icon": "📖",
+          "position": { "x": 400, "y": 350 },
+          "proximity": 64,
+          "proximityEmoji": "📚",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Read Book",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "The words blur: confessions of someone with your face, your name.",
+                "emotionalImpact": "😱",
+                "event": { "action": "add_state", "state": "book_read" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "whisky_glass",
+          "type": "object",
+          "icon": "🥃",
+          "position": { "x": 600, "y": 400 },
+          "proximity": 64,
+          "proximityEmoji": "🤤",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Sip Whisky",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "The burn in your throat stings—maybe it will help you forget.",
+                "emotionalImpact": "😵",
+                "event": { "action": "add_state", "state": "whisky_sipped" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "final_revelation",
+          "type": "mainQuest",
+          "icon": "🔑",
+          "position": { "x": 512, "y": 200 },
+          "proximity": 64,
+          "proximityEmoji": "🔍",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Unlock Memory",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "A flood of images: the day you were replaced flashes before you.",
+                "emotionalImpact": "😭",
+                "event": { "action": "add_state", "state": "memory_unlocked" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "door_living",
+          "type": "exit",
+          "icon": null,
+          "orientation": "west",
+          "offset": 0.5,
+          "proximity": 48,
+          "proximityNarrative": "The path loops back to where it all began.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Return to Living Room",
+              "action": {
+                "type": "travel",
+                "to": "living_room"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

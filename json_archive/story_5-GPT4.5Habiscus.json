@@ -1,0 +1,199 @@
+{
+  "hints": [
+    "Use arrow keys to guide Thomas through memories.",
+    "Press [E] to interact with elements.",
+    "Press [M] to hear Thomas’s inner reflections."
+  ],
+  "rooms": {
+    "hawaii_memory": {
+      "narrative": {
+        "act": {"number": 0, "title": "Memory of Warmth"},
+        "weekday": "Past",
+        "objective": "Relive a cherished memory with Joi.",
+        "onEnter": "The warm Hawaiian sun bathes everything in gold; Joi smiles brightly, wearing a hibiscus flower."
+      },
+      "setting": "Hawaiian Beach Café – vibrant, warm, nostalgic.",
+      "defaultEmoji": "😊",
+      "mantraNarratives": [
+        "I never thought I'd feel this lucky.",
+        "Her smile is the warmest memory I have."
+      ],
+      "nodes": [
+        {
+          "id": "hibiscus_flower",
+          "type": "object",
+          "icon": "🌺",
+          "position": {"x": 200, "y": 300},
+          "prompt": "Place flower in Joi’s hair",
+          "proximityEmoji": "🌸",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Remember this moment",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Joi beams with happiness. 'I love you, Thomas,' she whispers. 'You make me so happy.'",
+                "event": {"action": "add_state", "state": "flower_memory"}
+              }
+            }
+          ]
+        },
+        {
+          "id": "exit_memory",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {"x": 600, "y": 500},
+          "prompt": "Step forward in time",
+          "proximityEmoji": "⏳",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Wake up",
+              "action": {"type": "travel", "to": "living_room_potluck_night"}
+            }
+          ]
+        }
+      ]
+    },
+    "living_room_potluck_night": {
+      "narrative": {
+        "act": {"number": 1, "title": "An Unsettling Quiet"},
+        "weekday": "Saturday",
+        "objective": "Reconnect or retreat inward.",
+        "onEnter": "Dim light reveals potluck remains. Joi gazes distantly out the window."
+      },
+      "setting": "Living Room – quiet, tense, shadows stretching.",
+      "defaultEmoji": "😐",
+      "mantraNarratives": [
+        "I am worthy of love.",
+        "Tonight feels like a memory already fading."
+      ],
+      "nodes": [
+        {
+          "id": "joi_window",
+          "type": "npc",
+          "icon": "👩🏻",
+          "position": {"x": 550, "y": 250},
+          "prompt": "Approach Joi",
+          "proximityEmoji": "😔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Speak softly",
+              "action": {
+                "type": "dialogue_choice",
+                "narrative": "Joi murmurs: 'Do you remember Hawaii?'",
+                "choices": [
+                  {
+                    "key": "T",
+                    "prompt": "\"Every day.\"",
+                    "action": {
+                      "type": "set_room_narrative",
+                      "narrative": "Joi exhales softly. 'Then why does it feel so distant?'"
+                    }
+                  },
+                  {
+                    "key": "J",
+                    "prompt": "\"I try not to.\"",
+                    "action": {
+                      "type": "set_room_narrative",
+                      "narrative": "Joi stiffens subtly. 'At least you're honest.'"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "family_photo",
+          "type": "object",
+          "icon": "🖼️",
+          "position": {"x": 250, "y": 400},
+          "prompt": "Look at Family Photo",
+          "proximityEmoji": "🤔",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Recall happiness",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Thomas hears the echoes of laughter, bittersweet and distant.",
+                "event": {"action": "add_state", "state": "photo_recalled"}
+              }
+            }
+          ]
+        },
+        {
+          "id": "bedroom_exit",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {"x": 500, "y": 600},
+          "prompt": "Retire to Bedroom",
+          "proximityEmoji": "🚪",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Enter Bedroom",
+              "action": {
+                "type": "travel",
+                "to": "bedroom_after_potluck",
+                "requiresState": "photo_recalled"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "bedroom_after_potluck": {
+      "narrative": {
+        "act": {"number": 1, "title": "Restless Reflections"},
+        "weekday": "Saturday",
+        "objective": "Find clarity or linger in doubt.",
+        "onEnter": "Moonlight drapes the untouched bed; silence fills the room."
+      },
+      "setting": "Bedroom – still, expectant, unsettling.",
+      "defaultEmoji": "😔",
+      "mantraNarratives": [
+        "Rest doesn't come to troubled minds.",
+        "Am I truly worthy of love?"
+      ],
+      "nodes": [
+        {
+          "id": "mirror_reflection",
+          "type": "object",
+          "icon": "🪞",
+          "position": {"x": 400, "y": 250},
+          "prompt": "Face Reflection",
+          "proximityEmoji": "👤",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Look deeply",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "The reflection flickers, momentarily replaced by an unfamiliar face.",
+                "event": {"action": "add_state", "state": "reflection_seen"}
+              }
+            }
+          ]
+        },
+        {
+          "id": "return_living_room",
+          "type": "exit",
+          "icon": "🚪",
+          "position": {"x": 500, "y": 600},
+          "prompt": "Return to Living Room",
+          "proximityEmoji": "🚪",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Back to Living Room",
+              "action": {"type": "travel", "to": "living_room_potluck_night"}
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

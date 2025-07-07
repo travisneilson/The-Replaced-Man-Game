@@ -1,0 +1,790 @@
+{
+    "hints": [
+        "Use arrow keys.",
+        "Press [E].",
+        "Press [M]."
+    ],
+    "rooms": {
+        "hawaii_memory": {
+            "narrative": {
+                "act": {
+                    "number": 0,
+                    "title": "Memory of Warmth"
+                },
+                "weekday": "Past",
+                "objective": "Relive a cherished memory with Joi.",
+                "onEnter": "The warm Hawaiian sun bathes everything in gold; Joi smiles brightly, wearing a hibiscus flower."
+            },
+            "setting": "Hawaiian Beach Caf\u00e9 \u2013 vibrant, warm, nostalgic.",
+            "defaultEmoji": "\ud83d\ude0a",
+            "mantraNarratives": [
+                "I never thought I'd feel this lucky.",
+                "Her smile is the warmest memory I have."
+            ],
+            "nodes": [
+                {
+                    "id": "hibiscus_flower",
+                    "type": "object",
+                    "icon": "\ud83c\udf3a",
+                    "position": {
+                        "x": 200,
+                        "y": 300
+                    },
+                    "prompt": "Place flower in Joi\u2019s hair",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Remember this moment",
+                            "action": {
+                                "type": "set_room_narrative",
+                                "narrative": "Joi beams with happiness. 'I love you, Thomas,' she whispers."
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "to_office_monday",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 600,
+                        "y": 500
+                    },
+                    "prompt": "Step into the future",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Wake up",
+                            "action": {
+                                "type": "travel",
+                                "to": "office_monday"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "office_monday": {
+            "narrative": {
+                "act": {
+                    "number": 1,
+                    "title": "Quiet Beginnings"
+                },
+                "weekday": "Monday",
+                "objective": "Navigate a day at work.",
+                "onEnter": "Thomas sits in his sparse office, feeling isolated."
+            },
+            "setting": "Office \u2013 minimal, futuristic.",
+            "defaultEmoji": "\ud83d\ude10",
+            "mantraNarratives": [
+                "Am I where I should be?",
+                "This place feels both familiar and alien."
+            ],
+            "nodes": [
+                {
+                    "id": "jack_conversation",
+                    "type": "npc",
+                    "icon": "\ud83d\udc68\ud83c\udffb",
+                    "position": {
+                        "x": 300,
+                        "y": 250
+                    },
+                    "prompt": "Talk to Jack",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Discuss promotion",
+                            "action": {
+                                "type": "set_room_narrative",
+                                "narrative": "Jack smiles, 'Think about applying for the role.'"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "office_to_park",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Leave Office",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Head to park",
+                            "action": {
+                                "type": "travel",
+                                "to": "park_afternoon"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "park_afternoon": {
+            "narrative": {
+                "act": {
+                    "number": 1,
+                    "title": "Play and Tension"
+                },
+                "weekday": "Monday",
+                "objective": "Engage with your children.",
+                "onEnter": "Park \u2013 bright yet uneasy."
+            },
+            "setting": "Park \u2013 bright yet uneasy.",
+            "defaultEmoji": "\ud83d\ude15",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "park_afternoon_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dinner_table": {
+            "narrative": {
+                "act": {
+                    "number": 1,
+                    "title": "Silent Meal"
+                },
+                "weekday": "Monday",
+                "objective": "Try to connect with Joi.",
+                "onEnter": "Dinner table \u2013 strained atmosphere."
+            },
+            "setting": "Dinner table \u2013 strained atmosphere.",
+            "defaultEmoji": "\ud83d\ude14",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "dinner_table_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "bathroom_reflection": {
+            "narrative": {
+                "act": {
+                    "number": 1,
+                    "title": "Inner Truth"
+                },
+                "weekday": "Monday",
+                "objective": "Reflect in solitude.",
+                "onEnter": "Bathroom \u2013 reflective silence."
+            },
+            "setting": "Bathroom \u2013 reflective silence.",
+            "defaultEmoji": "\ud83d\ude14",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "bathroom_reflection_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "office_presentation": {
+            "narrative": {
+                "act": {
+                    "number": 1,
+                    "title": "Public Pressure"
+                },
+                "weekday": "Tuesday",
+                "objective": "Present your findings.",
+                "onEnter": "Meeting room \u2013 tense air."
+            },
+            "setting": "Meeting room \u2013 tense air.",
+            "defaultEmoji": "\ud83d\ude1f",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "office_presentation_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "office_writing_card": {
+            "narrative": {
+                "act": {
+                    "number": 1,
+                    "title": "Words to Joi"
+                },
+                "weekday": "Wednesday",
+                "objective": "Write a heartfelt note.",
+                "onEnter": "Office \u2013 private yet vulnerable."
+            },
+            "setting": "Office \u2013 private yet vulnerable.",
+            "defaultEmoji": "\ud83d\ude1e",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "office_writing_card_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "grocery_store": {
+            "narrative": {
+                "act": {
+                    "number": 2,
+                    "title": "Small Tensions"
+                },
+                "weekday": "Wednesday",
+                "objective": "Pick up groceries.",
+                "onEnter": "Store \u2013 mundane yet tense."
+            },
+            "setting": "Store \u2013 mundane yet tense.",
+            "defaultEmoji": "\ud83d\ude10",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "grocery_store_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "potluck_living_room": {
+            "narrative": {
+                "act": {
+                    "number": 2,
+                    "title": "Tales of Grass"
+                },
+                "weekday": "Wednesday",
+                "objective": "Play the Katarigusa game.",
+                "onEnter": "Jack's living room \u2013 subtly strained."
+            },
+            "setting": "Jack's living room \u2013 subtly strained.",
+            "defaultEmoji": "\ud83d\ude36",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "potluck_living_room_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "potluck_game_room": {
+            "narrative": {
+                "act": {
+                    "number": 2,
+                    "title": "Broken Heirloom"
+                },
+                "weekday": "Wednesday",
+                "objective": "Handle a broken vase.",
+                "onEnter": "Game room \u2013 anxious aftermath."
+            },
+            "setting": "Game room \u2013 anxious aftermath.",
+            "defaultEmoji": "\ud83d\ude2c",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "potluck_game_room_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "potluck_hallway": {
+            "narrative": {
+                "act": {
+                    "number": 2,
+                    "title": "Unseen Tension"
+                },
+                "weekday": "Wednesday",
+                "objective": "Observe Joi and Jack.",
+                "onEnter": "Hallway \u2013 hidden whispers."
+            },
+            "setting": "Hallway \u2013 hidden whispers.",
+            "defaultEmoji": "\ud83d\ude1f",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "potluck_hallway_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "drive_home": {
+            "narrative": {
+                "act": {
+                    "number": 2,
+                    "title": "Silent Ride"
+                },
+                "weekday": "Wednesday",
+                "objective": "Drive home in silence.",
+                "onEnter": "Car \u2013 quiet, heavy tension."
+            },
+            "setting": "Car \u2013 quiet, heavy tension.",
+            "defaultEmoji": "\ud83d\ude12",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "drive_home_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "bedroom_after_potluck": {
+            "narrative": {
+                "act": {
+                    "number": 2,
+                    "title": "Sleepless Night"
+                },
+                "weekday": "Wednesday",
+                "objective": "Try to find rest.",
+                "onEnter": "Bedroom \u2013 restless moonlight."
+            },
+            "setting": "Bedroom \u2013 restless moonlight.",
+            "defaultEmoji": "\ud83d\ude1e",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "bedroom_after_potluck_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "park_crisis": {
+            "narrative": {
+                "act": {
+                    "number": 2,
+                    "title": "Sudden Crisis"
+                },
+                "weekday": "Thursday",
+                "objective": "Handle a serious accident.",
+                "onEnter": "Park \u2013 suddenly terrifying."
+            },
+            "setting": "Park \u2013 suddenly terrifying.",
+            "defaultEmoji": "\ud83d\ude28",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "park_crisis_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "hospital_room": {
+            "narrative": {
+                "act": {
+                    "number": 3,
+                    "title": "Aftermath"
+                },
+                "weekday": "Thursday",
+                "objective": "Support family in crisis.",
+                "onEnter": "Hospital \u2013 cold and sterile."
+            },
+            "setting": "Hospital \u2013 cold and sterile.",
+            "defaultEmoji": "\ud83d\ude22",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "hospital_room_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "running_club": {
+            "narrative": {
+                "act": {
+                    "number": 3,
+                    "title": "Hidden Joy"
+                },
+                "weekday": "Friday",
+                "objective": "Observe Joi's independence.",
+                "onEnter": "Running club \u2013 open freedom."
+            },
+            "setting": "Running club \u2013 open freedom.",
+            "defaultEmoji": "\ud83d\ude10",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "running_club_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "ministry_revelation": {
+            "narrative": {
+                "act": {
+                    "number": 3,
+                    "title": "Revealed Truth"
+                },
+                "weekday": "Saturday",
+                "objective": "Discover unsettling truths.",
+                "onEnter": "Ministry \u2013 revelation awaits."
+            },
+            "setting": "Ministry \u2013 revelation awaits.",
+            "defaultEmoji": "\ud83d\ude27",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "ministry_revelation_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "home_final_reflection": {
+            "narrative": {
+                "act": {
+                    "number": 3,
+                    "title": "Final Questions"
+                },
+                "weekday": "Saturday",
+                "objective": "Face existential truths.",
+                "onEnter": "Home \u2013 existential confrontation."
+            },
+            "setting": "Home \u2013 existential confrontation.",
+            "defaultEmoji": "\ud83d\ude31",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "home_final_reflection_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "final_bedroom_scene": {
+            "narrative": {
+                "act": {
+                    "number": 3,
+                    "title": "The Cycle Continues"
+                },
+                "weekday": "Saturday",
+                "objective": "Accept or repeat the loop.",
+                "onEnter": "Bedroom \u2013 end and beginning."
+            },
+            "setting": "Bedroom \u2013 end and beginning.",
+            "defaultEmoji": "\ud83d\ude14",
+            "mantraNarratives": [
+                "Reflecting deeply.",
+                "Why does everything feel so cyclical?"
+            ],
+            "nodes": [
+                {
+                    "id": "final_bedroom_scene_exit",
+                    "type": "exit",
+                    "icon": "\ud83d\udeaa",
+                    "position": {
+                        "x": 500,
+                        "y": 600
+                    },
+                    "prompt": "Continue onward",
+                    "interactions": [
+                        {
+                            "key": "E",
+                            "prompt": "Move forward",
+                            "action": {
+                                "type": "travel",
+                                "to": "hawaii_memory"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

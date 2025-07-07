@@ -1,0 +1,112 @@
+{
+  "hints": [
+    "On the beach, memories can rise like the tide—press [E] to explore each one.",
+    "Collect Mantra charges from hidden fragments of memory.",
+    "Use [M] to unlock an inner thought when you’ve gathered enough Mantras."
+  ],
+  "rooms": {
+    "beach_day": {
+      "narrative": {
+        "act":   { "number": 2, "title": "Sunlit Reminiscence" },
+        "weekday": "Saturday",
+        "objective": "Uncover the echoes of that day at the shore.",
+        "onEnter":  "Warm sand beneath your feet. The gulls cry overhead. A distant laughter drifts on the breeze.",
+        "mantraNarratives": [
+          "The tide washes away footprints, but not memory.",
+          "Why did the laughter feel so hollow then?",
+          "A breeze carries salt and a whisper of the past."
+        ]
+      },
+      "setting":      "A wide, sun-bleached beach bordered by rolling waves.",
+      "defaultEmoji": "😐",
+      "nodes": [
+        {
+          "id": "sandcastle",
+          "type": "object",
+          "icon": "🏰",
+          "position": { "x": 300, "y": 500 },
+          "proximity": 96,
+          "prompt": "Inspect Sandcastle",
+          "proximityEmoji": "👀",
+          "proximityNarrative": "A half-ruined sandcastle, adorned with bits of shell and driftwood.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Examine",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "You trace the moat’s curve—someone carved initials here long ago.",
+                "emotionalImpact": "🤔",
+                "event": { "action": "add_state", "state": "saw_initials" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "joi_beach",
+          "type": "npc",
+          "icon": "👩🏻",
+          "position": { "x": 600, "y": 450 },
+          "proximity": 96,
+          "prompt": "Talk to Joi",
+          "proximityEmoji": "💬",
+          "proximityNarrative": "Joi kneels in the sand, her fingers tracing a hidden sadness.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Speak",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "“Thomas,” she whispers, “we were so happy... until everything changed.”",
+                "emotionalImpact": "😢"
+              }
+            }
+          ]
+        },
+        {
+          "id": "children_laugh",
+          "type": "npc",
+          "icon": "🧒",
+          "position": { "x": 450, "y": 600 },
+          "proximity": 96,
+          "prompt": "Listen",
+          "proximityEmoji": "🎈",
+          "proximityNarrative": "Two children chase each other around a kite stuck in the breeze.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Listen",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "Their laughter peals like bells—bright, unburdened by time.",
+                "emotionalImpact": "😊"
+              }
+            }
+          ]
+        },
+        {
+          "id": "crab_object",
+          "type": "object",
+          "icon": "🦀",
+          "position": { "x": 750, "y": 700 },
+          "proximity": 96,
+          "prompt": "Observe Crab",
+          "proximityEmoji": "🔎",
+          "proximityNarrative": "A lone crab scuttles across the sand, carrying a tiny shell on its back.",
+          "interactions": [
+            {
+              "key": "E",
+              "prompt": "Observe",
+              "action": {
+                "type": "set_room_narrative",
+                "narrative": "It pauses, pincers raised, as if guarding a fragment of your past.",
+                "emotionalImpact": "🧐",
+                "event": { "action": "add_state", "state": "gained_mantra" }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
